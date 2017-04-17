@@ -1,5 +1,5 @@
 # twitcmd
-[![Go Report Card](https://goreportcard.com/badge/github.com/peppage/twitcmd) (https://goreportcard.com/report/github.com/peppage/twitcmd)
+[![Go Report Card](https://goreportcard.com/badge/github.com/peppage/twitcmd)](https://goreportcard.com/report/github.com/peppage/twitcmd)
 
 #### twitcmd is a command-line tool for accessing Twitter.
 Very simple way to read twitter and respond from the command line.
