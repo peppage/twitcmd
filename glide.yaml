@@ -1,0 +1,14 @@
+package: github.com/peppage/twitcmd
+import:
+- package: github.com/spf13/cobra
+- package: github.com/spf13/viper
+- package: github.com/dghubble/go-twitter
+- package: github.com/pkulak/simpletransport
+  subpackages:
+  - simpletransport
+- package: github.com/theherk/viper
+- package: github.com/dghubble/oauth1
+  version: ^0.4.0
+- package: github.com/fatih/color
+  version: ^1.4.1
+- package: github.com/mitchellh/go-wordwrap
