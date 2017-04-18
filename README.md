@@ -32,3 +32,6 @@ Help is available for all commands. If you need help for a subcommand type the c
 
 #### Get mentions
     twitcmd mentions -n 10
+
+#### Lookup a user
+    twitcmd whois Peppage
