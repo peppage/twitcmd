@@ -25,36 +25,36 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var timelineCount int32
-var timelineReverse bool
+var mentionsCount int32
+var mentionsReverse bool
 
-// timelineCmd represents the timeline command
-var timelineCmd = &cobra.Command{
-	Use:   "timeline",
-	Short: "Your home timeline",
-	Long: `The twitter home timeline.
-
-Show tweets users are tweeting right now!
+// mentionsCmd represents the mentions command
+var mentionsCmd = &cobra.Command{
+	Use:   "mentions",
+	Short: "The most recent tweets mentioning you",
+	Long: `Your twitter mentions timeline.
+	
+Shows users interacting with you right now!
 
 Example:
-To show the last 5 tweets
+To show the last 5 mentions
 
-twitcmd timeline -n 5`,
+twitcmd mentions -n 5`,
 	Run: func(cmd *cobra.Command, args []string) {
-		tweets, _, err := client.Timelines.HomeTimeline(&twitter.HomeTimelineParams{
-			Count: int(timelineCount),
+		mentions, _, err := client.Timelines.MentionTimeline(&twitter.MentionTimelineParams{
+			Count: int(mentionsCount),
 		})
 		if err != nil {
-			er("Getting timeline failed " + err.Error())
+			er("Getting mention timeline failed " + err.Error())
 		}
 
-		displayTweets(tweets, timelineReverse)
+		displayTweets(mentions, mentionsReverse)
 	},
 }
 
 func init() {
-	RootCmd.AddCommand(timelineCmd)
+	RootCmd.AddCommand(mentionsCmd)
 
-	timelineCmd.Flags().Int32VarP(&timelineCount, "number", "n", 200, "The number of tweets to get")
-	timelineCmd.Flags().BoolVarP(&timelineReverse, "reverse", "r", false, "Reverse the sort order")
+	mentionsCmd.Flags().Int32VarP(&mentionsCount, "number", "n", 200, "The number of mentions to get")
+	mentionsCmd.Flags().BoolVarP(&mentionsReverse, "reverse", "r", false, "Reverse the sort order")
 }

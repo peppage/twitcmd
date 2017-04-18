@@ -29,3 +29,6 @@ Help is available for all commands. If you need help for a subcommand type the c
 
 #### Delete tweets
     twitcmd delete 852174540075671556 853926060496375809
+
+#### Get mentions
+    twitcmd mentions -n 10

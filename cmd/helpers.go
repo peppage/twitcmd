@@ -4,6 +4,10 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+
+	"github.com/dghubble/go-twitter/twitter"
+	"github.com/fatih/color"
+	wordwrap "github.com/mitchellh/go-wordwrap"
 )
 
 func er(msg interface{}) {
@@ -27,4 +31,18 @@ func parseID(id string) int64 {
 		er("That tweet id is not a number")
 	}
 	return i
+}
+
+func displayTweets(tweets []twitter.Tweet, reverse bool) {
+	for i := range tweets {
+		t := tweets[i]
+		if reverse {
+			t = tweets[len(tweets)-1-i]
+		}
+
+		color.Yellow("@" + t.User.ScreenName)
+		color.Green(strconv.FormatInt(t.ID, 10))
+		color.White(wordwrap.WrapString(t.Text, 80))
+		fmt.Println("")
+	}
 }
